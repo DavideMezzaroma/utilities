@@ -14,8 +14,8 @@ DArray* da_create(size_t element_size){
 }
 
 void da_destroy(DArray* dyn_array){
-	if(dyn_array->data != NULL) free(dyn_array->data);
-
+	if(dyn_array == NULL) return;
+	free(dyn_array->data);
 	free(dyn_array);
 }
 
@@ -23,6 +23,7 @@ void da_clear(DArray* dyn_array){
 	free(dyn_array->data);
 	dyn_array->size = 0;
 	dyn_array->capacity = 0;
+	dyn_array->data = NULL;
 }
 
 size_t da_capacity(DArray* dyn_array){
@@ -48,6 +49,7 @@ void da_set(DArray* dyn_array, size_t idx, const void* new_element){
 }
 
 int da_add(DArray* dynarr, const void* new_element){
+	if(dynarr == NULL || new_element == NULL) return -1;
 	if(dynarr->capacity <= dynarr->size){
 		size_t new_capacity = dynarr->capacity == 0 ? 4 : dynarr->capacity * 2;
 		void * new_data = realloc(dynarr->data, new_capacity * dynarr->element_size);
