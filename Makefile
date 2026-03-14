@@ -1,1 +1,1 @@
-CFLAGS += -std=gnu11 -Wall -Werror -lraylib -lm -o test
+CFLAGS += -std=gnu11 -Wall -lm -o test

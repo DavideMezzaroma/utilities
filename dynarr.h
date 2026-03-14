@@ -20,6 +20,8 @@ size_t da_size(DArray* dyn_array);
 void* da_get(DArray* dyn_array, size_t idx);
 void da_set(DArray* dyn_array, size_t idx, const void* new_element);
 int da_add(DArray* dyn_array, const void* new_element);
+int da_shrink_to_fit(DArray* dyn_arr);
+int da_reserve(DArray* dyn_arr, size_t num_elements);
 
 
 #endif
