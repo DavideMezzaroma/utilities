@@ -4,10 +4,10 @@
 
 //generic dyn_arr data structure
 typedef struct{
-	void* data;
-	size_t size;
-	size_t capacity;
-	size_t element_size;
+    void* data;
+    size_t size;
+    size_t capacity;
+    size_t element_size;
 }DArray;
 
 DArray* da_create(size_t element_size);
