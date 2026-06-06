@@ -26,4 +26,6 @@ StringSlice split_by(StringSlice* ss, char delimiter);
 
 StringSlice split_by_type(StringSlice* ss, int (*is_of_type)(int c));
 
+bool ss_equals(StringSlice a, StringSlice b);
+
 #endif // STRING_SLICE_H_

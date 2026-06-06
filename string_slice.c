@@ -78,3 +78,13 @@ StringSlice split_by_type(StringSlice* ss, int (*is_of_type)(int c)){
     chop_left(ss, i+1);
     return result;
 }
+
+bool ss_equals(StringSlice a, StringSlice b){
+    if (a.len != b.len) return false;
+
+    for(int i = 0; i < a.len; ++i){
+        if(a.data[i] != b.data[i])
+            return false;
+    }
+    return true;
+}
