@@ -82,9 +82,15 @@ StringSlice split_by_type(StringSlice* ss, int (*is_of_type)(int c)){
 bool ss_equals(StringSlice a, StringSlice b){
     if (a.len != b.len) return false;
 
-    for(int i = 0; i < a.len; ++i){
+    for(size_t i = 0; i < a.len; ++i){
         if(a.data[i] != b.data[i])
             return false;
     }
     return true;
+}
+
+bool ss_equals_voidptrs(const void* a, const void* b){
+    StringSlice* slice_a = (StringSlice*)a;
+    StringSlice* slice_b = (StringSlice*)b;
+    return ss_equals(*slice_a, *slice_b);
 }
